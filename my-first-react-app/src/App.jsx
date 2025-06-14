@@ -12,15 +12,13 @@ const Card = ({ title }) => {
   // State to track if the card has been liked
   const [hasLiked, setHasLiked] = useState(false);
 
-  useEffect(effect:()=> {
+  useEffect(() => {
     console.log(` ${title} has been liked: ${hasLiked}`);
-   
-  }
-  , [title]);
+  }, [title, hasLiked]);
 
   return (
-    <div className="Card">
-      <h2>{title}</h2>
+    <div className="Card" onClick={() => setCount(count + 1)}>
+      <h2>{title}-{count}</h2>
       <button onClick={() => setHasLiked(!hasLiked)}>
         {hasLiked ? "❤️" : "🖤"}
       </button>
